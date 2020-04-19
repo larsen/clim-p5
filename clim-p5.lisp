@@ -20,6 +20,8 @@
 ;; Test other superclasses
 (defclass refresh-event (window-manager-event) ())
 (defmethod handle-event (frame (event refresh-event))
+  ;; TODO e` questo il posto corretto per window-clear?
+  (window-clear (find-pane-named frame 'canvas))
   (funcall #'display frame (find-pane-named frame 'canvas))
   (sleep 0.1)
   (queue-event (frame-top-level-sheet frame)
@@ -31,6 +33,11 @@
                  (make-instance 'refresh-event :sheet frame))))
 
 ;; USER SPACE
+
+;; (run :init #'init-function
+;;      :draw #'display
+;;      :update #'update)
+;; TODO ^^^
 
 ;; TODO eliminare frame dalla signature
 (defun display (frame pane)
