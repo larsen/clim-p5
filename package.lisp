@@ -1,4 +1,5 @@
 ;;;; package.lisp
 
 (defpackage #:clim-p5
-  (:use #:clim #:clim-lisp))
+  (:use #:clim #:clim-lisp)
+  (:export #:run))
