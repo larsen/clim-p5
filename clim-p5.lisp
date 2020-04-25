@@ -50,19 +50,3 @@
                            :update-function update
                            :draw-function draw)))
 
-;; USER SPACE
-
-(defun init ()
-  (print "OK."))
-
-(defun display (pane)
-  (draw-rectangle* pane 10 10 100 100 :ink +red+)
-  (draw-rectangle* pane 50 50 140 140 :ink +green+))
-
-(defun update ()
-  (print "update."))
-
-(run :init 'init
-     :draw 'display
-     :update 'update)
-
